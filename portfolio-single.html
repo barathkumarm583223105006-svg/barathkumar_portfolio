@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M. Barathkumar — Electrical & Electronics Engineer | Industrial Automation, IoT & Embedded Systems</title>
+<meta name="description" content="Portfolio of M. Barathkumar, final-year EEE student specializing in PLC automation, embedded systems, IoT and power electronics, pursuing a career as an Electrical Testing Officer in the maritime sector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   M. Barathkumar — Portfolio
+   Design system: engineering / schematic aesthetic
+   ============================================================ */
+
+:root{
+  --bg:            #F5F8FA;
+  --surface:       #FFFFFF;
+  --surface-2:     #EEF3F6;
+  --ink:           #14202B;
+  --ink-soft:      #4B5B68;
+  --line:          #DAE3E8;
+  --blue:          #1D5D9B;
+  --blue-deep:     #123B63;
+  --blue-mist:     #E7F0F8;
+  --amber:         #E8A33D;
+  --amber-soft:    #FCEFD9;
+  --ok:            #2E8B57;
+
+  --font-display:  'Space Grotesk', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+
+  --radius:        10px;
+  --radius-sm:     6px;
+  --maxw:          1160px;
+  --nav-h:         72px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+
+.container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  color:var(--ink);
+  margin:0 0 .5em;
+  letter-spacing:-0.01em;
+}
+
+.mono{ font-family:var(--font-mono); }
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--blue);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:"";
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 3px var(--amber-soft);
+  animation:pulse-led 2.4s ease-in-out infinite;
+}
+@keyframes pulse-led{
+  0%,100%{ box-shadow:0 0 0 3px var(--amber-soft); }
+  50%{ box-shadow:0 0 0 6px var(--amber-soft); }
+}
+
+/* ---------- Trace divider (signature element) ---------- */
+.trace{
+  width:100%;
+  height:28px;
+  margin:0 auto;
+  display:block;
+}
+.section-gap{ padding:88px 0; }
+.section-gap.tight{ padding:64px 0; }
+.section-gap.alt{ background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+/* ---------- Navbar ---------- */
+.navbar{
+  position:fixed; top:0; left:0; right:0;
+  height:var(--nav-h);
+  background:rgba(245,248,250,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  z-index:1000;
+}
+.navbar .container{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:19px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--ink);
+}
+.brand .dot{
+  width:9px;height:9px;border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 0 3px var(--blue-mist);
+}
+.brand small{
+  font-family:var(--font-mono);
+  font-weight:400;
+  font-size:11px;
+  color:var(--ink-soft);
+  letter-spacing:.08em;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:2px;
+}
+.nav-links a{
+  font-size:14px;
+  font-weight:500;
+  color:var(--ink-soft);
+  padding:10px 14px;
+  border-radius:var(--radius-sm);
+  transition:color .15s, background .15s;
+}
+.nav-links a:hover, .nav-links a:focus-visible{
+  color:var(--blue);
+  background:var(--blue-mist);
+}
+.nav-links a.active{
+  color:var(--blue);
+  font-weight:600;
+}
+.nav-toggle{
+  display:none;
+  background:none;border:1px solid var(--line);border-radius:var(--radius-sm);
+  width:40px;height:40px;
+  align-items:center;justify-content:center;
+  cursor:pointer;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+  content:"";
+  display:block;
+  width:18px;height:2px;
+  background:var(--ink);
+  position:relative;
+  transition:.2s;
+}
+.nav-toggle span::before{ position:absolute; top:-6px; }
+.nav-toggle span::after{ position:absolute; top:6px; }
+
+@media (max-width:880px){
+  .nav-links{
+    position:fixed;
+    top:var(--nav-h); left:0; right:0;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:stretch;
+    padding:8px;
+    gap:0;
+    transform:translateY(-8px);
+    opacity:0;
+    pointer-events:none;
+    transition:.2s;
+  }
+  .nav-links.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .nav-links a{ padding:14px 12px; border-radius:var(--radius-sm); }
+  .nav-toggle{ display:flex; }
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:14.5px;
+  padding:13px 24px;
+  border-radius:var(--radius-sm);
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .15s, box-shadow .15s, background .15s, color .15s;
+}
+.btn:active{ transform:translateY(1px); }
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 6px 18px -6px rgba(29,93,155,.55);
+}
+.btn-primary:hover{ background:var(--blue-deep); }
+.btn-ghost{
+  background:transparent;
+  border-color:var(--line);
+  color:var(--ink);
+}
+.btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
+.btn-sm{ padding:9px 16px; font-size:13px; }
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:calc(var(--nav-h) + 72px) 0 80px;
+  overflow:hidden;
+  background:
+    radial-gradient(700px 380px at 82% -10%, var(--blue-mist), transparent 60%),
+    var(--bg);
+}
+.hero-grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.5), transparent 75%);
+  opacity:.55;
+  pointer-events:none;
+}
+.hero .container{ position:relative; display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; }
+.hero-name{ font-size:clamp(32px,4.6vw,54px); line-height:1.05; }
+.hero-headline{
+  font-family:var(--font-mono);
+  color:var(--blue-deep);
+  font-size:14.5px;
+  line-height:1.75;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:3px solid var(--amber);
+  padding:14px 16px;
+  border-radius:var(--radius-sm);
+  margin:18px 0 22px;
+  max-width:560px;
+}
+.hero-intro{ color:var(--ink-soft); max-width:560px; margin-bottom:30px; font-size:15.5px; }
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+.hero-panel{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 20px 45px -25px rgba(18,59,99,.35);
+}
+.hero-panel .panel-head{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft);
+  border-bottom:1px dashed var(--line);
+  padding-bottom:12px; margin-bottom:16px;
+  text-transform:uppercase; letter-spacing:.08em;
+}
+.panel-head .leds{ display:flex; gap:6px; }
+.panel-head .leds span{ width:7px;height:7px;border-radius:50%;background:var(--line); }
+.panel-head .leds span:nth-child(1){ background:#E4635C; }
+.panel-head .leds span:nth-child(2){ background:var(--amber); }
+.panel-head .leds span:nth-child(3){ background:var(--ok); }
+
+.readout{
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:9px 0;
+  border-bottom:1px solid var(--surface-2);
+  font-size:13.5px;
+}
+.readout:last-child{ border-bottom:none; }
+.readout .label{ color:var(--ink-soft); }
+.readout .val{ font-family:var(--font-mono); color:var(--blue-deep); font-weight:600; }
+
+/* ---------- Stats ---------- */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:64px;
+}
+.stat{
+  background:var(--surface);
+  padding:28px 20px;
+  text-align:center;
+}
+.stat .num{
+  font-family:var(--font-mono);
+  font-size:clamp(26px,3vw,38px);
+  font-weight:700;
+  color:var(--blue);
+}
+.stat .num::after{ content:attr(data-suffix); }
+.stat .lbl{ font-size:12.5px; color:var(--ink-soft); margin-top:6px; letter-spacing:.02em; }
+
+@media (max-width:880px){
+  .hero .container{ grid-template-columns:1fr; }
+  .stats{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ---------- Generic page header (inner pages) ---------- */
+.page-head{
+  padding:calc(var(--nav-h) + 56px) 0 56px;
+  background:
+    radial-gradient(600px 300px at 85% -20%, var(--blue-mist), transparent 60%),
+    var(--bg);
+  border-bottom:1px solid var(--line);
+}
+.page-head h1{ font-size:clamp(28px,3.6vw,42px); }
+.page-head p{ color:var(--ink-soft); max-width:640px; font-size:15.5px; }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform:none; }
+
+/* ---------- Cards grid generic ---------- */
+.grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+@media (max-width:880px){ .grid-2,.grid-3{ grid-template-columns:1fr; } }
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  position:relative;
+}
+.card::before{
+  content:"";
+  position:absolute; top:14px; right:14px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--line);
+  transition:background .2s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 34px -22px rgba(18,59,99,.4);
+  border-color:#C7D6E0;
+}
+.card:hover::before{ background:var(--amber); }
+
+.icon-badge{
+  width:44px;height:44px;
+  border-radius:10px;
+  background:var(--blue-mist);
+  color:var(--blue);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:16px;
+}
+.icon-badge svg{ width:22px;height:22px; }
+
+/* ---------- Section heading ---------- */
+.sec-head{ margin-bottom:40px; max-width:640px; }
+.sec-head h2{ font-size:clamp(24px,3vw,32px); }
+.sec-head p{ color:var(--ink-soft); font-size:15px; }
+
+/* ---------- Timeline ---------- */
+.timeline{ position:relative; padding-left:28px; }
+.timeline::before{
+  content:"";
+  position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+  background:repeating-linear-gradient(var(--line),var(--line) 4px, transparent 4px, transparent 8px);
+}
+.tl-item{ position:relative; padding-bottom:36px; }
+.tl-item:last-child{ padding-bottom:0; }
+.tl-item::before{
+  content:"";
+  position:absolute; left:-28px; top:4px;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--surface); border:2px solid var(--blue);
+}
+.tl-item .tl-date{ font-family:var(--font-mono); font-size:12px; color:var(--blue); letter-spacing:.06em; }
+.tl-item h3{ font-size:19px; margin:6px 0 4px; }
+.tl-item .tl-org{ color:var(--ink-soft); font-size:14.5px; margin-bottom:8px; }
+.tl-item .tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+
+.tag{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  padding:4px 10px;
+  border-radius:20px;
+  background:var(--blue-mist);
+  color:var(--blue-deep);
+  border:1px solid #D6E4F0;
+}
+.tag.amber{ background:var(--amber-soft); color:#8A5A0F; border-color:#F2DBAA; }
+
+/* ---------- Skills ---------- */
+.skill-group{ margin-bottom:34px; }
+.skill-group h3{
+  font-family:var(--font-mono);
+  font-size:13px; text-transform:uppercase; letter-spacing:.1em;
+  color:var(--ink-soft); margin-bottom:18px;
+  display:flex; align-items:center; gap:10px;
+}
+.skill-group h3::after{ content:""; flex:1; height:1px; background:var(--line); }
+.skill{ margin-bottom:16px; }
+.skill-top{ display:flex; justify-content:space-between; font-size:14px; margin-bottom:7px; }
+.skill-top .pct{ font-family:var(--font-mono); color:var(--blue); font-weight:600; }
+.bar{ height:7px; background:var(--surface-2); border-radius:20px; overflow:hidden; border:1px solid var(--line); }
+.bar-fill{
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg, var(--blue), #3E86C7);
+  width:0%;
+  transition:width 1.1s cubic-bezier(.2,.7,.2,1);
+}
+.pill-row{ display:flex; flex-wrap:wrap; gap:10px; }
+.pill{
+  border:1px solid var(--line);
+  background:var(--surface);
+  padding:8px 14px;
+  border-radius:20px;
+  font-size:13.5px;
+  display:flex; align-items:center; gap:8px;
+}
+.pill .dot{ width:6px;height:6px;border-radius:50%; background:var(--amber); }
+
+/* ---------- Projects ---------- */
+.proj-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:transform .2s, box-shadow .2s;
+}
+.proj-card:hover{ transform:translateY(-5px); box-shadow:0 20px 38px -24px rgba(18,59,99,.45); }
+.proj-top{
+  background:var(--blue-deep);
+  color:#fff;
+  padding:22px 24px;
+  position:relative;
+  overflow:hidden;
+}
+.proj-top::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size:18px 18px;
+}
+.proj-top .proj-idx{ font-family:var(--font-mono); font-size:12px; opacity:.7; position:relative; }
+.proj-top h3{ color:#fff; margin:8px 0 0; font-size:19px; position:relative; }
+.proj-body{ padding:22px 24px; }
+.proj-body p{ color:var(--ink-soft); font-size:14.5px; margin:0 0 16px; }
+.proj-body .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+
+/* ---------- Services ---------- */
+.service-card{ display:flex; gap:16px; align-items:flex-start; }
+.service-card h3{ font-size:17px; margin-bottom:6px; }
+.service-card p{ color:var(--ink-soft); font-size:14px; margin:0; }
+
+/* ---------- Achievements ---------- */
+.ach-card{ display:flex; gap:18px; }
+.ach-num{
+  font-family:var(--font-mono);
+  font-size:13px; color:var(--amber);
+  border:1px solid #F2DBAA;
+  background:var(--amber-soft);
+  width:40px;height:40px; min-width:40px;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+}
+.ach-card h3{ font-size:17px; margin-bottom:6px; }
+.ach-card p{ color:var(--ink-soft); font-size:14.5px; margin:0; }
+
+/* ---------- Contact ---------- */
+.contact-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:36px; }
+@media (max-width:880px){ .contact-grid{ grid-template-columns:1fr; } }
+.contact-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; display:flex; gap:14px; align-items:center; margin-bottom:14px;
+}
+.contact-card .icon-badge{ margin-bottom:0; flex-shrink:0; }
+.contact-card .lbl{ font-size:12px; color:var(--ink-soft); font-family:var(--font-mono); letter-spacing:.05em; }
+.contact-card .val{ font-size:15px; font-weight:600; }
+.social-row{ display:flex; gap:10px; margin-top:18px; }
+.social-row a{
+  width:40px;height:40px; border-radius:10px;
+  border:1px solid var(--line); background:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  transition:.2s;
+}
+.social-row a:hover{ background:var(--blue); color:#fff; border-color:var(--blue); }
+
+.form-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:28px;
+}
+.form-row{ margin-bottom:16px; }
+.form-row label{
+  display:block; font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);
+  letter-spacing:.05em; margin-bottom:7px; text-transform:uppercase;
+}
+.form-row input, .form-row textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:12px 14px;
+  font-family:var(--font-body);
+  font-size:14.5px;
+  background:var(--bg);
+  color:var(--ink);
+  transition:border-color .15s, box-shadow .15s;
+}
+.form-row input:focus, .form-row textarea:focus{
+  outline:none; border-color:var(--blue); box-shadow:0 0 0 3px var(--blue-mist);
+}
+.map-frame{
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:22px; height:260px;
+}
+.map-frame iframe{ width:100%; height:100%; border:0; }
+.form-note{ font-size:12.5px; color:var(--ink-soft); margin-top:10px; }
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--blue-deep);
+  color:#EAF1F8;
+  padding:56px 0 24px;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:36px;
+  padding-bottom:36px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+@media (max-width:880px){ .footer-top{ grid-template-columns:1fr; } }
+footer h4{ color:#fff; font-size:14px; text-transform:uppercase; letter-spacing:.08em; font-family:var(--font-mono); margin-bottom:16px; }
+footer .brand{ color:#fff; margin-bottom:10px; }
+footer .brand .dot{ background:var(--amber); box-shadow:0 0 0 3px rgba(232,163,61,.25); }
+footer p{ color:#B9CBDD; font-size:14px; max-width:320px; }
+footer ul li{ margin-bottom:10px; }
+footer ul a{ color:#CFDEEC; font-size:14px; transition:color .15s; }
+footer ul a:hover{ color:var(--amber); }
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center;
+  padding-top:22px; font-size:13px; color:#9FB4C9; flex-wrap:wrap; gap:12px;
+}
+.back-top{
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; cursor:pointer;
+}
+
+/* ---------- Scroll-to-top floating button ---------- */
+.scrolltop-fab{
+  position:fixed; right:20px; bottom:20px;
+  width:46px;height:46px;border-radius:50%;
+  background:var(--blue); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 24px -8px rgba(29,93,155,.6);
+  border:none; cursor:pointer;
+  opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:.25s;
+  z-index:900;
+}
+.scrolltop-fab.show{ opacity:1; pointer-events:auto; transform:none; }
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background:var(--blue-deep);
+  color:#fff;
+  border-radius:18px;
+  padding:48px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  flex-wrap:wrap;
+  position:relative;
+  overflow:hidden;
+}
+.cta-band::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:24px 24px;
+}
+.cta-band h2{ color:#fff; margin-bottom:6px; font-size:24px; position:relative; }
+.cta-band p{ color:#C7D9EA; margin:0; position:relative; }
+.cta-band .btn-primary{ background:var(--amber); box-shadow:none; color:#3A2508; position:relative; }
+.cta-band .btn-primary:hover{ background:#F0B357; }
+
+
+
+/* ---- Single-page adjustments ---- */
+section[id]{ scroll-margin-top: var(--nav-h); }
+.page-head.inline{
+  padding: 64px 0 40px;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="#home" class="brand"><span class="dot"></span>M. Barathkumar<small>&nbsp;/ EEE</small></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+<header class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="reveal in">
+      <span class="eyebrow">Available for opportunities</span>
+      <h1 class="hero-name">M. Barathkumar</h1>
+      <div class="hero-headline">Final-Year EEE Student — PLC Programmer — Embedded Systems &amp; IoT Developer — Industrial Automation Enthusiast</div>
+      <p class="hero-intro">Final-year Electrical and Electronics Engineering student with a strong foundation in PLC-based automation, embedded systems, IoT platforms, and power electronics. Passionate about turning automation and smart-technology concepts into practical industrial control and hardware solutions — working toward a career as an Electrical Testing Officer in the maritime and shipping sector.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          Download Resume
+        </a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+    </div>
+
+    <aside class="hero-panel reveal in">
+      <div class="panel-head">
+        <span>system_status.log</span>
+        <span class="leds"><span></span><span></span><span></span></span>
+      </div>
+      <div class="readout"><span class="label">Discipline</span><span class="val">EEE</span></div>
+      <div class="readout"><span class="label">Focus</span><span class="val">Automation / IoT</span></div>
+      <div class="readout"><span class="label">CGPA</span><span class="val">7.79 / 10</span></div>
+      <div class="readout"><span class="label">Graduation</span><span class="val">2027</span></div>
+      <div class="readout"><span class="label">Base</span><span class="val">Dindigul, TN</span></div>
+      <div class="readout"><span class="label">Target Role</span><span class="val">Electrical Testing Officer</span></div>
+    </aside>
+  </div>
+
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="num" data-count="5">0</div><div class="lbl">Engineering Projects</div></div>
+      <div class="stat"><div class="num" data-count="2">0</div><div class="lbl">Industrial Trainings</div></div>
+      <div class="stat"><div class="num" data-count="7.79">0</div><div class="lbl">Current CGPA</div></div>
+      <div class="stat"><div class="num" data-count="3">0</div><div class="lbl">PLC Platforms</div></div>
+    </div>
+  </div>
+</header>
+</header>
+
+<section class="section-gap alt"><div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What I work on</span>
+      <h2>From control logic to the field panel</h2>
+      <p>A snapshot of the domains this portfolio covers — explore each in depth through the navigation above.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M4 9h2M4 15h2M18 9h2M18 15h2M9 4v2M15 4v2M9 18v2M15 18v2"/></svg></div>
+        <h3>Industrial Automation</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">PLC programming across Siemens, Delta and Mitsubishi platforms for manufacturing and control systems.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="8" rx="1"/><path d="M9 9V6a3 3 0 016 0v3M9 21h6M12 17v4"/></svg></div>
+        <h3>Embedded Systems &amp; IoT</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Arduino and ESP32-based prototypes connecting sensors, hardware and cloud dashboards.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h3>Power Electronics &amp; Testing</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Electrical safety systems, live-line detection and testing aimed at industrial and maritime environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Have a project or role in mind?</h2>
+        <p>Open to internships, training programs and entry-level roles in automation, embedded systems and electrical testing.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">About</span>
+    <h1>Engineering mindset, built for the field</h1>
+    <p>A practical, problem-first approach to electrical and electronics engineering — grounded in automation, hardware and industrial control.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="grid-2" style="align-items:start;">
+      <div class="reveal">
+        <span class="eyebrow">Profile</span>
+        <h2 style="font-size:26px;">Practical, hands-on, automation-focused</h2>
+        <p style="color:var(--ink-soft);margin-bottom:16px;">I approach engineering with a practical mindset — starting from how a system will actually behave on the factory floor or in the field, not just on paper. Across coursework, training programs and personal projects, I've developed a strong problem-solving ability that comes from repeatedly building, testing, and debugging real hardware and control logic.</p>
+        <p style="color:var(--ink-soft);margin-bottom:16px;">My core passion lies in automation: taking a manual or inefficient process and re-engineering it with PLCs, sensors, and embedded controllers. Alongside this, I enjoy hardware development — from prototyping with Arduino and ESP32 to designing PCBs — and I'm equally comfortable working on industrial control systems that need to be robust and safe.</p>
+        <p style="color:var(--ink-soft);">I'm also drawn to renewable energy and smart technology solutions, which is reflected in projects like an inside-pipe hydro power generator and a solar-powered IoT agricultural vehicle — work that pairs electrical engineering fundamentals with sustainability-minded design.</p>
+      </div>
+      <aside class="hero-panel reveal">
+        <div class="panel-head">
+          <span>career_objective.txt</span>
+          <span class="leds"><span></span><span></span><span></span></span>
+        </div>
+        <p style="font-size:14.5px;color:var(--ink-soft);margin:0 0 14px;">To build a successful career as an <strong style="color:var(--ink);">Electrical Testing Officer</strong> in the maritime and shipping industry, while contributing innovative automation and electrical engineering solutions.</p>
+        <div class="readout"><span class="label">Sector interest</span><span class="val">Maritime / Shipping</span></div>
+        <div class="readout"><span class="label">Core strength</span><span class="val">PLC &amp; Automation</span></div>
+        <div class="readout"><span class="label">Also exploring</span><span class="val">Renewable Energy</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section-gap alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What drives the work</span>
+      <h2>Focus areas</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 3-2 4-2 7H9c0-3-2-4-2-7a5 5 0 015-5z"/><path d="M9 21h6M10 18h4"/></svg></div>
+        <h3>Problem-Solving</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Diagnosing faults in control logic and hardware systematically, from sensor to output.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 9h2M4 15h2M18 9h2M18 15h2"/></svg></div>
+        <h3>Industrial Control</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Designing and programming logic that keeps manufacturing processes safe and efficient.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <h3>Renewable Energy</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Exploring sustainable generation methods, from hydro-in-pipe systems to solar-powered vehicles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="education">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Education</span>
+    <h1>Academic timeline</h1>
+    <p>Formal engineering education building toward specialization in automation and electrical testing.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="grid-2" style="align-items:start; grid-template-columns:1fr .9fr;">
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <span class="tl-date mono">2023 — 2027</span>
+          <h3>Bachelor of Engineering — Electrical and Electronics Engineering</h3>
+          <div class="tl-org">N.P.R. College of Engineering and Technology, Natham, Tamil Nadu</div>
+          <p style="color:var(--ink-soft);font-size:14.5px;margin:0;">Currently in final year, building a foundation across power systems, control theory, embedded electronics and automation, with hands-on project work in IoT and industrial safety.</p>
+          <div class="tags">
+            <span class="tag">CGPA 7.79</span>
+            <span class="tag amber">Final Year</span>
+            <span class="tag">EEE</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date mono">Ongoing</span>
+          <h3>Specialization Focus</h3>
+          <div class="tl-org">Self-directed &amp; training-based learning</div>
+          <p style="color:var(--ink-soft);font-size:14.5px;margin:0;">Deepening expertise in PLC programming, IoT platforms and electrical testing alongside core coursework, through industrial training placements.</p>
+          <div class="tags">
+            <span class="tag">PLC</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Electrical Testing</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-panel reveal">
+        <div class="panel-head">
+          <span>academic_record.dat</span>
+          <span class="leds"><span></span><span></span><span></span></span>
+        </div>
+        <div class="readout"><span class="label">Institution</span><span class="val">N.P.R.C.E.T</span></div>
+        <div class="readout"><span class="label">Program</span><span class="val">B.E. EEE</span></div>
+        <div class="readout"><span class="label">Location</span><span class="val">Natham, TN</span></div>
+        <div class="readout"><span class="label">Duration</span><span class="val">2023 – 2027</span></div>
+        <div class="readout"><span class="label">CGPA</span><span class="val">7.79</span></div>
+        <div style="margin-top:18px;">
+          <div class="skill-top"><span>Degree Progress</span><span class="pct">75%</span></div>
+          <div class="bar"><div class="bar-fill" data-pct="75"></div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="skills">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Skills</span>
+    <h1>Technical &amp; professional skill set</h1>
+    <p>A working toolkit spanning industrial automation, embedded hardware, programming and engineering software.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="grid-2" style="align-items:start;">
+      <div class="reveal">
+        <div class="skill-group">
+          <h3>Industrial Automation</h3>
+          <div class="skill"><div class="skill-top"><span>PLC Programming (Siemens / Delta / Mitsubishi)</span><span class="pct">88%</span></div><div class="bar"><div class="bar-fill" data-pct="88"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Industrial Automation</span><span class="pct">85%</span></div><div class="bar"><div class="bar-fill" data-pct="85"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Manufacturing Systems</span><span class="pct">78%</span></div><div class="bar"><div class="bar-fill" data-pct="78"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Electrical Testing</span><span class="pct">82%</span></div><div class="bar"><div class="bar-fill" data-pct="82"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Embedded Systems</h3>
+          <div class="skill"><div class="skill-top"><span>Embedded Systems</span><span class="pct">84%</span></div><div class="bar"><div class="bar-fill" data-pct="84"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Arduino</span><span class="pct">90%</span></div><div class="bar"><div class="bar-fill" data-pct="90"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>ESP32</span><span class="pct">80%</span></div><div class="bar"><div class="bar-fill" data-pct="80"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>IoT Development</span><span class="pct">83%</span></div><div class="bar"><div class="bar-fill" data-pct="83"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Electrical Engineering</h3>
+          <div class="skill"><div class="skill-top"><span>Power Electronics</span><span class="pct">76%</span></div><div class="bar"><div class="bar-fill" data-pct="76"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Electrical Safety Systems</span><span class="pct">81%</span></div><div class="bar"><div class="bar-fill" data-pct="81"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Industrial Control Systems</span><span class="pct">79%</span></div><div class="bar"><div class="bar-fill" data-pct="79"></div></div></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <div class="pill-row">
+            <span class="pill"><span class="dot"></span>C</span>
+            <span class="pill"><span class="dot"></span>C++</span>
+            <span class="pill"><span class="dot"></span>Python</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Engineering Software</h3>
+          <div class="pill-row">
+            <span class="pill"><span class="dot"></span>MATLAB</span>
+            <span class="pill"><span class="dot"></span>AutoCAD Electrical</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Professional Skills</h3>
+          <div class="skill"><div class="skill-top"><span>Leadership</span><span class="pct">80%</span></div><div class="bar"><div class="bar-fill" data-pct="80"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Teamwork</span><span class="pct">88%</span></div><div class="bar"><div class="bar-fill" data-pct="88"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Problem Solving</span><span class="pct">87%</span></div><div class="bar"><div class="bar-fill" data-pct="87"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Communication</span><span class="pct">82%</span></div><div class="bar"><div class="bar-fill" data-pct="82"></div></div></div>
+          <div class="skill"><div class="skill-top"><span>Analytical Thinking</span><span class="pct">85%</span></div><div class="bar"><div class="bar-fill" data-pct="85"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="experience">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Experience &amp; Training</span>
+    <h1>Hands-on industrial exposure</h1>
+    <p>Practical training programs that connect classroom fundamentals to real production-floor systems.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="timeline reveal" style="max-width:760px;">
+      <div class="tl-item">
+        <span class="tl-date mono">1 Month</span>
+        <h3>Industrial Automation Training</h3>
+        <div class="tl-org">Sri Vari Innovation and Automation Solution</div>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin:0;">Focused training on PLC programming and manufacturing management, building practical skill in ladder logic, I/O configuration and production-line control workflows.</p>
+        <div class="tags">
+          <span class="tag">PLC Programming</span>
+          <span class="tag">Manufacturing Management</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date mono">1 Month</span>
+        <h3>Industrial Training</h3>
+        <div class="tl-org">Bhargave Rubber Private Limited, Madurai</div>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin:0;">On-site exposure to factory operations and electrical systems within a manufacturing environment, observing how control and safety systems function in production.</p>
+        <div class="tags">
+          <span class="tag">Factory Operations</span>
+          <span class="tag">Electrical Systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-gap alt">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>Looking for the next training ground</h2>
+        <p>Open to internships and industrial attachments in automation, embedded systems, and electrical testing.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary">Discuss Opportunities</a>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="projects">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Projects</span>
+    <h1>Built, tested, and field-ready</h1>
+    <p>Five engineering projects spanning defense robotics, precision agriculture, safety systems, road intelligence and renewable energy.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="grid-3">
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-idx mono">PRJ / 01</span>
+          <h3>Smart Landmine Detection Rover</h3>
+        </div>
+        <div class="proj-body">
+          <p>IoT-based autonomous robotic system developed for defense and security applications, built to detect buried threats remotely and safely.</p>
+          <div class="tags">
+            <span class="tag">IoT</span>
+            <span class="tag">Robotics</span>
+            <span class="tag amber">Defense</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-idx mono">PRJ / 02</span>
+          <h3>Solar Powered IoT Agri-Vehicle</h3>
+        </div>
+        <div class="proj-body">
+          <p>Solar-powered agriculture vehicle integrated with IoT technology to improve farming efficiency and sustainability for precision farming.</p>
+          <div class="tags">
+            <span class="tag">Solar</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Agriculture</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-idx mono">PRJ / 03</span>
+          <h3>Smart Electrical Safety</h3>
+        </div>
+        <div class="proj-body">
+          <p>A live current detector that identifies energized power lines and electrical equipment, improving safety for electricians and maintenance personnel.</p>
+          <div class="tags">
+            <span class="tag">Electrical Safety</span>
+            <span class="tag">Embedded</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-idx mono">PRJ / 04</span>
+          <h3>Smart Adaptive Road Intelligence &amp; Rider Protection System</h3>
+        </div>
+        <div class="proj-body">
+          <p>Designed to detect road hazards in real time and alert riders, enhancing two-wheeler road safety through embedded sensing.</p>
+          <div class="tags">
+            <span class="tag">Sensors</span>
+            <span class="tag">Road Safety</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <span class="proj-idx mono">PRJ / 05</span>
+          <h3>Inside Pipe Hydro Power Generation</h3>
+        </div>
+        <div class="proj-body">
+          <p>An innovative renewable energy project generating electricity from water flowing inside pipelines, promoting sustainable and efficient power generation.</p>
+          <div class="tags">
+            <span class="tag">Renewable Energy</span>
+            <span class="tag">Hydro</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="services">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Services</span>
+    <h1>What I can help you build</h1>
+    <p>Engineering support across automation, embedded hardware, and electrical testing — from prototype to panel.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card service-card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <div>
+          <h3>PLC Programming &amp; Automation Solutions</h3>
+          <p>Ladder logic design and PLC configuration across Siemens, Delta and Mitsubishi platforms for process and manufacturing control.</p>
+        </div>
+      </div>
+      <div class="card service-card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="9" width="12" height="8" rx="1"/><path d="M9 9V6a3 3 0 016 0v3"/></svg></div>
+        <div>
+          <h3>Embedded Systems Development</h3>
+          <p>Firmware and hardware design using microcontrollers for sensing, control, and real-time response applications.</p>
+        </div>
+      </div>
+      <div class="card service-card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <div>
+          <h3>IoT Prototype Development</h3>
+          <p>Connected prototypes built on Arduino and ESP32, linking field sensors to dashboards and remote monitoring.</p>
+        </div>
+      </div>
+      <div class="card service-card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <div>
+          <h3>Electrical Testing &amp; Troubleshooting</h3>
+          <p>Diagnostic testing of electrical equipment and circuits, identifying faults and verifying safe operation.</p>
+        </div>
+      </div>
+      <div class="card service-card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+        <div>
+          <h3>PCB Design</h3>
+          <p>Schematic capture and PCB layout for embedded and power-electronics prototypes, from concept to fabrication-ready files.</p>
+        </div>
+      </div>
+      <div class="card service-card reveal">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
+        <div>
+          <h3>Industrial Automation Consulting</h3>
+          <p>Assessing manual processes and recommending automation approaches suited to manufacturing environments.</p>
+        </div>
+      </div>
+      <div class="card service-card reveal" style="grid-column:1/-1;">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></div>
+        <div>
+          <h3>Electrical Control Panel Design</h3>
+          <p>Layout and design of control panels — component selection, wiring schematics, and safety-conscious panel organization for industrial installations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="achievements">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Achievements</span>
+    <h1>Recognition along the way</h1>
+    <p>Milestones from paper presentations and academic showcases.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="grid-2" style="max-width:900px;">
+      <div class="card ach-card reveal">
+        <div class="ach-num">01</div>
+        <div>
+          <h3>Third Prize — Paper Presentation</h3>
+          <p>Awarded third prize at Syed Ammal Engineering College, Ramanathapuram, for the project "Smart Landmine Detection Rover."</p>
+        </div>
+      </div>
+      <div class="card ach-card reveal">
+        <div class="ach-num">02</div>
+        <div>
+          <h3>Science Day Project Showcase</h3>
+          <p>Presented engineering project work at the Science Day Project Showcase, N.P.R. College of Engineering and Technology.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="contact">
+<header class="page-head inline">
+  <div class="container reveal in">
+    <span class="eyebrow">Contact</span>
+    <h1>Let's connect</h1>
+    <p>Open to internships, training programs and roles in automation, embedded systems and electrical testing.</p>
+  </div>
+</header>
+
+<section class="section-gap">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <div>
+            <div class="lbl">Email</div>
+            <a class="val" href="mailto:barathkumarm24@gmail.com">barathkumarm24@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg></div>
+          <div>
+            <div class="lbl">Phone</div>
+            <a class="val" href="tel:+916384987273">+91 63849 87273</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11a7 7 0 0114 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div>
+            <div class="lbl">Location</div>
+            <span class="val">Dindigul, Tamil Nadu, India</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></div>
+          <div>
+            <div class="lbl">LinkedIn</div>
+            <a class="val" href="https://www.linkedin.com/in/barathkumar-m-a599ba3a4" target="_blank" rel="noopener">barathkumar-m-a599ba3a4</a>
+          </div>
+        </div>
+
+        <div class="social-row" style="margin-top:22px;">
+          <a href="https://www.linkedin.com/in/barathkumar-m-a599ba3a4" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+          <a href="mailto:barathkumarm24@gmail.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></a>
+          <a href="tel:+916384987273" aria-label="Phone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg></a>
+        </div>
+
+        <div class="map-frame">
+          <iframe title="Dindigul, Tamil Nadu location map" loading="lazy" src="https://www.google.com/maps?q=Dindigul,Tamil%20Nadu,India&output=embed"></iframe>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="form-card">
+          <h3 style="margin-bottom:18px;">Send a message</h3>
+          <form id="contact-form">
+            <div class="grid-2" style="gap:16px;">
+              <div class="form-row">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your full name" required>
+              </div>
+              <div class="form-row">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" placeholder="What's this about?" required>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell me about the opportunity or project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+            <p class="form-note">This form is a front-end demo — messages aren't sent to a server. Please use the email or phone above for now.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<footer><div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="#home" class="brand"><span class="dot"></span>M. Barathkumar</a>
+        <p>Final-year Electrical &amp; Electronics Engineering student specializing in industrial automation, embedded systems and electrical testing.</p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/barathkumar-m-a599ba3a4" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+          <a href="mailto:barathkumarm24@gmail.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></a>
+          <a href="tel:+916384987273" aria-label="Phone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:barathkumarm24@gmail.com">barathkumarm24@gmail.com</a></li>
+          <li><a href="tel:+916384987273">+91 63849 87273</a></li>
+          <li><a href="#">Dindigul, Tamil Nadu, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 M. Barathkumar. All Rights Reserved.</span>
+      <button class="back-top" aria-label="Back to top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<button class="scrolltop-fab" aria-label="Scroll to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>
+// ============================================================
+// M. Barathkumar — Portfolio interactions
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---- Mobile nav toggle ---- */
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links){
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  }
+
+  /* ---- Scrollspy active nav link ---- */
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const spySections = Array.from(navAnchors).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if ('IntersectionObserver' in window && spySections.length){
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = '#' + entry.target.id;
+        const link = document.querySelector(`.nav-links a[href="${id}"]`);
+        if (!link) return;
+        if (entry.isIntersecting){
+          navAnchors.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    spySections.forEach(s => spy.observe(s));
+  }
+
+  /* ---- Scroll reveal ---- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  /* ---- Animated counters ---- */
+  const counters = document.querySelectorAll('.num[data-count]');
+  if (counters.length){
+    const animateCount = (el) => {
+      const target = parseFloat(el.getAttribute('data-count'));
+      const decimals = (el.getAttribute('data-count').split('.')[1] || '').length;
+      const duration = 1400;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = target * eased;
+        el.textContent = decimals ? val.toFixed(decimals) : Math.round(val);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = decimals ? target.toFixed(decimals) : target;
+      };
+      requestAnimationFrame(step);
+    };
+    if ('IntersectionObserver' in window){
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting){
+            animateCount(entry.target);
+            cio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(c => cio.observe(c));
+    } else {
+      counters.forEach(c => c.textContent = c.getAttribute('data-count'));
+    }
+  }
+
+  /* ---- Skill bars ---- */
+  const bars = document.querySelectorAll('.bar-fill[data-pct]');
+  if (bars.length){
+    if ('IntersectionObserver' in window){
+      const bio = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting){
+            entry.target.style.width = entry.target.getAttribute('data-pct') + '%';
+            bio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      bars.forEach(b => bio.observe(b));
+    } else {
+      bars.forEach(b => b.style.width = b.getAttribute('data-pct') + '%');
+    }
+  }
+
+  /* ---- Scroll-to-top FAB ---- */
+  const fab = document.querySelector('.scrolltop-fab');
+  if (fab){
+    window.addEventListener('scroll', () => {
+      fab.classList.toggle('show', window.scrollY > 420);
+    });
+    fab.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+  document.querySelectorAll('.back-top').forEach(btn => {
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  });
+
+  /* ---- Contact form (front-end only demo) ---- */
+  const form = document.querySelector('#contact-form');
+  if (form){
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Message sent ✓';
+      btn.disabled = true;
+      form.reset();
+      setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 2600);
+    });
+  }
+
+  /* ---- Navbar shrink on scroll (subtle shadow) ---- */
+  const nav = document.querySelector('.navbar');
+  if (nav){
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 8 ? '0 4px 18px -12px rgba(18,59,99,.35)' : 'none';
+    });
+  }
+});
+
+</script>
+</body>
+</html>
